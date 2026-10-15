@@ -396,14 +396,17 @@ export default function App() {
                 </div>
 
                 {/* Bottom Submit Action */}
-                <div className="flex justify-between items-center pt-1 border-t border-white/10">
-                  <span className="text-[0.68rem] text-zinc-400">
-                    Inputs automatically update live metrics
-                  </span>
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2.5 mt-2 border-t border-white/10">
+                  <div className="flex items-center gap-1.5 text-zinc-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                    <span className="text-[0.72rem] text-zinc-400 leading-tight">
+                      Adjust your inputs to recalculate wellness metrics
+                    </span>
+                  </div>
                   <button
                     type="submit"
                     disabled={loading}
-                    className="h-8 px-6 bg-emerald-500 hover:bg-emerald-400 active:scale-[0.98] text-black font-semibold rounded-md text-[0.78rem] transition-all shadow-md shadow-emerald-950/40 flex items-center gap-1.5"
+                    className="h-9 px-5 w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 active:scale-[0.98] text-black font-semibold rounded-lg text-xs sm:text-[0.82rem] transition-all shadow-md shadow-emerald-950/40 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>{loading ? 'Evaluating Model...' : 'Calculate Score'}</span>
@@ -431,16 +434,16 @@ export default function App() {
 
             <div className="relative z-10 w-full flex flex-col justify-between items-center h-full">
               {/* Header with View Tabs */}
-              <div className="w-full text-left shrink-0 pb-1.5 border-b border-white/5">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-serif text-[1.08rem] font-medium text-zinc-100">Live Assessment</h3>
+              <div className="w-full text-left shrink-0 pb-2 border-b border-white/5">
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="font-serif text-base sm:text-[1.08rem] font-medium text-zinc-100">Live Assessment</h3>
 
-                  <div className="flex items-center gap-1 bg-zinc-900/90 p-0.5 rounded-lg border border-white/10">
+                  <div className="flex items-center gap-1 bg-zinc-900/90 p-1 rounded-lg border border-white/10 shadow-sm">
                     <button
                       type="button"
                       onClick={() => setActiveTab('gauge')}
-                      className={`px-2 py-0.5 rounded text-[0.62rem] font-medium transition-all ${
-                        activeTab === 'gauge' ? 'bg-zinc-800 text-white shadow-sm' : 'text-zinc-400 hover:text-zinc-200'
+                      className={`px-3 py-1.5 rounded-md text-xs sm:text-[0.78rem] font-medium transition-all cursor-pointer ${
+                        activeTab === 'gauge' ? 'bg-zinc-800 text-white shadow-sm font-semibold' : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
                       }`}
                     >
                       Gauge
@@ -448,24 +451,24 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => setActiveTab('analytics')}
-                      className={`px-2 py-0.5 rounded text-[0.62rem] font-medium transition-all flex items-center gap-1 ${
-                        activeTab === 'analytics' ? 'bg-emerald-950 border border-emerald-500/40 text-emerald-300 shadow-sm' : 'text-zinc-400 hover:text-zinc-200'
+                      className={`px-3 py-1.5 rounded-md text-xs sm:text-[0.78rem] font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
+                        activeTab === 'analytics' ? 'bg-emerald-950/90 border border-emerald-500/50 text-emerald-300 shadow-sm font-semibold' : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
                       }`}
                     >
-                      <Activity className="w-2.5 h-2.5" />
+                      <Activity className="w-3.5 h-3.5" />
                       Analytics
                     </button>
                     <button
                       type="button"
                       onClick={() => setShowFullSuite(true)}
                       title="Open Full Analytics Suite"
-                      className="p-1 rounded text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+                      className="p-1.5 rounded-md text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors cursor-pointer"
                     >
-                      <Maximize2 className="w-2.5 h-2.5" />
+                      <Maximize2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
-                <p className="text-[0.68rem] text-zinc-400 mt-0.5">
+                <p className="text-[0.7rem] sm:text-xs text-zinc-400 mt-1">
                   {activeTab === 'gauge' ? 'Behavioral score computed from 5,000-student model.' : '12-week longitudinal trajectory benchmarked against empirical cohort.'}
                 </p>
               </div>
