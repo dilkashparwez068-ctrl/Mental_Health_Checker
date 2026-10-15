@@ -161,15 +161,9 @@ export default function App() {
 
             <div className="relative z-10 flex flex-col justify-between h-full">
               <div className="flex justify-between items-center mb-2.5 pb-1 border-b border-white/10">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-serif text-[1.05rem] font-medium text-zinc-100">
-                    Your Profile & Habits
-                  </h3>
-                  <span className="text-[0.62rem] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-zinc-400">
-                    Silk Texture
-                  </span>
-                </div>
-                <span className="text-[0.68rem] text-zinc-400">12 Input Parameters</span>
+                <h3 className="font-serif text-[1.05rem] font-medium text-zinc-100">
+                  Your Profile & Habits
+                </h3>
               </div>
 
               <form onSubmit={handleSubmit} className="flex-1 flex flex-col justify-between">
@@ -439,12 +433,7 @@ export default function App() {
               {/* Header with View Tabs */}
               <div className="w-full text-left shrink-0 pb-1.5 border-b border-white/5">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-serif text-[1.08rem] font-medium text-zinc-100">Live Assessment</h3>
-                    <span className="text-[0.58rem] tracking-wider uppercase px-1.5 py-0.5 rounded bg-zinc-900 border border-white/10 text-zinc-400 font-mono">
-                      Real-Time
-                    </span>
-                  </div>
+                  <h3 className="font-serif text-[1.08rem] font-medium text-zinc-100">Live Assessment</h3>
 
                   <div className="flex items-center gap-1 bg-zinc-900/90 p-0.5 rounded-lg border border-white/10">
                     <button
