@@ -140,8 +140,8 @@ export default function App() {
   const pctChange = Math.round(((trajectoryValues[activePtIdx] - trajectoryValues[0]) / (trajectoryValues[0] || 1)) * 100)
 
   return (
-    <div className="w-full h-screen bg-black text-zinc-100 flex flex-col justify-between overflow-hidden font-sans select-none relative">
-      <div className="max-w-[1240px] w-full mx-auto px-6 py-3 flex-1 flex flex-col justify-between h-full">
+    <div className="w-full min-h-screen lg:h-screen bg-black text-zinc-100 flex flex-col justify-between overflow-x-hidden overflow-y-auto lg:overflow-hidden font-sans select-none relative">
+      <div className="max-w-[1240px] w-full mx-auto px-4 sm:px-6 py-3 flex-1 flex flex-col justify-between min-h-0">
         {/* Top Centered Header */}
         <header className="flex flex-col items-center justify-center text-center pb-2.5 pt-1 border-b border-white/10 shrink-0">
           <h1 className="text-2xl sm:text-[1.7rem] font-semibold text-white tracking-tight leading-tight">
@@ -153,7 +153,7 @@ export default function App() {
         </header>
 
         {/* Main Grid: Multi-Column Architectural Layout */}
-        <main className="grid grid-cols-1 lg:grid-cols-[1.95fr_1fr] gap-4 flex-1 min-h-0 items-stretch pb-1">
+        <main className="grid grid-cols-1 lg:grid-cols-[1.95fr_1fr] gap-4 flex-1 min-h-0 items-stretch pb-4 lg:pb-1">
           {/* Left Panel: Your Profile & Habits with Silk Texture */}
           <div className="relative overflow-hidden bg-zinc-950/80 border border-white/10 rounded-xl p-4 shadow-2xl backdrop-blur-md flex flex-col justify-between">
             {/* Silk Canvas animation running on card background */}
@@ -633,7 +633,7 @@ export default function App() {
       {showFullSuite && (
         <div className="fixed inset-0 z-50 bg-black flex flex-col w-screen h-screen overflow-hidden select-none">
           {/* Top Bar */}
-          <div className="flex justify-between items-center px-5 py-2 border-b border-white/10 shrink-0 bg-zinc-950 z-20">
+          <div className="flex justify-between items-center px-4 sm:px-5 py-2.5 sm:py-2 border-b border-white/10 shrink-0 bg-zinc-950 z-20">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span className="text-xs sm:text-sm text-zinc-300 font-medium">
@@ -656,8 +656,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Full-Screen Flow Diagram - fills entire remaining space */}
-          <div className="flex-1 overflow-hidden flex flex-col w-full">
+          {/* Full-Screen Flow Diagram - scrollable on mobile */}
+          <div className="flex-1 overflow-y-auto lg:overflow-hidden flex flex-col w-full min-h-0">
             <InkOrbitFeatures
               className="ib-fullscreen"
               theme="dark"

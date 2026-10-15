@@ -164,7 +164,7 @@ export function FeatureAttributionPanel({ context }: { context?: ProjectContextD
   ]
 
   return (
-    <div className="flex flex-col h-full justify-between p-6 bg-zinc-950/60 border-r border-white/5 select-none overflow-hidden gap-4">
+    <div className="flex flex-col h-full justify-between p-4 sm:p-6 bg-zinc-950/60 border-b lg:border-b-0 lg:border-r border-white/5 select-none gap-4">
       {/* Top Header */}
       <div className="shrink-0">
         <h3 className="text-base font-semibold text-zinc-100 tracking-tight">
@@ -261,7 +261,7 @@ export function CohortDistributionPanel({ context }: { context?: ProjectContextD
   const meanX = padX + meanRatio * (W - padX * 2)
 
   return (
-    <div className="flex flex-col h-full justify-between p-6 bg-zinc-950/60 border-r border-white/5 select-none">
+    <div className="flex flex-col h-full justify-between p-4 sm:p-6 bg-zinc-950/60 border-b lg:border-b-0 lg:border-r border-white/5 select-none gap-4">
       {/* Top Header */}
       <div>
         <div className="flex items-center gap-2 mb-1">
@@ -409,7 +409,7 @@ export function RecoveryProtocolPanel({ context }: { context?: ProjectContextDat
   ]
 
   return (
-    <div className="flex flex-col h-full justify-between p-6 bg-zinc-950/60 select-none">
+    <div className="flex flex-col h-full justify-between p-4 sm:p-6 bg-zinc-950/60 select-none gap-4">
       {/* Top Header */}
       <div>
         <div className="flex items-center gap-2 mb-1">
@@ -530,21 +530,21 @@ export default function InkOrbitFeatures({
   context,
 }: InkOrbitFeaturesProps) {
   return (
-    <div className={`w-full h-full flex flex-col bg-black text-zinc-100 ${className}`} style={style}>
-      {/* 3 Equal Panels Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 w-full h-full flex-1">
-        {/* Panel 1: Feature Attribution */}
-        <div className="w-full h-full">
+    <div className={`w-full min-h-full lg:h-full flex flex-col bg-black text-zinc-100 ${className}`} style={style}>
+      {/* 3 Equal Panels Grid - fully responsive and vertically scrollable on mobile */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 w-full min-h-full lg:h-full flex-1">
+        {/* Panel 1: Daily Habits & Targets */}
+        <div className="w-full min-h-[460px] lg:h-full">
           <FeatureAttributionPanel context={context} />
         </div>
 
         {/* Panel 2: Cohort Population Distribution */}
-        <div className="w-full h-full">
+        <div className="w-full min-h-[460px] lg:h-full">
           <CohortDistributionPanel context={context} />
         </div>
 
         {/* Panel 3: Actionable Recovery Protocol */}
-        <div className="w-full h-full">
+        <div className="w-full min-h-[460px] lg:h-full">
           <RecoveryProtocolPanel context={context} />
         </div>
       </div>

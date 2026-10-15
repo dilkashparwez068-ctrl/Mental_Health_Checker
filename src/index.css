@@ -17,10 +17,18 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  overflow: hidden;
   margin: 0;
   padding: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1024px) {
+  body {
+    overflow: hidden;
+  }
 }
 
 /* Full-Screen Modal Analytics Layout */
@@ -28,11 +36,16 @@ body {
   padding: 0 !important;
   background: transparent !important;
   width: 100% !important;
-  height: 100% !important;
-  overflow: hidden !important;
   display: flex !important;
   flex-direction: column !important;
+  min-height: 100% !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
 }
 
-
-
+@media (min-width: 1024px) {
+  .ib-fullscreen {
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+}
