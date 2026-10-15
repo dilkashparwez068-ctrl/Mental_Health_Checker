@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Score Predictor</title>
+    <!-- Clean Minimalist Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Top Centered Header -->
+        <header class="top-nav" style="display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; padding-bottom: 0.75rem;">
+            <div class="brand-block" style="text-align: center;">
+                <h1 class="brand-title" style="margin: 0; font-size: 1.6rem; font-weight: 600;">Mental Health Score Predictor</h1>
+                <p class="brand-subtitle" style="margin-top: 0.25rem; font-size: 0.85rem; color: #a1a1aa;">Understand your behavioral wellness — answer a few questions about your daily habits to receive an assessment score.</p>
+            </div>
+        </header>
+
+        <!-- Main 2-Column Content Grid -->
+        <main class="content-grid">
+            <!-- Left Card: Input Form -->
+            <div class="card form-card">
+                <h3 class="card-title">Your Profile & Habits</h3>
+
+                <form id="assessment-form" class="form-scroll-container">
+                    <!-- SECTION 1: ABOUT YOU -->
+                    <div class="section-group">
+                        <div class="section-badge">
+                            <span class="section-icon">👤</span>
+                            <span class="section-name">ABOUT YOU</span>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="input-field">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="10" max="100" placeholder="e.g. 21" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="input-field">
+                                <label for="country">Country</label>
+                                <select id="country" name="country" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="India">India</option>
+                                    <option value="USA">USA</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="France">France</option>
+                                    <option value="Mexico">Mexico</option>
+                                    <option value="Turkey">Turkey</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label for="academic_level">Academic level</label>
+                                <select id="academic_level" name="academic_level" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="High School">High School</option>
+                                    <option value="Undergraduate">Undergraduate</option>
+                                    <option value="Graduate">Graduate</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="custom_country">Your country</label>
+                            <input type="text" id="custom_country" name="custom_country" placeholder="e.g. Brazil">
+                            <span class="field-hint">Grouped as "Other" by the model — kept here for your own record.</span>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 2: SOCIAL HABITS -->
+                    <div class="section-group">
+                        <div class="section-badge">
+                            <span class="section-icon">📱</span>
+                            <span class="section-name">SOCIAL HABITS</span>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="input-field">
+                                <label for="most_used_platform">Most-used platform</label>
+                                <select id="most_used_platform" name="most_used_platform" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="YouTube">YouTube</option>
+                                    <option value="TikTok">TikTok</option>
+                                    <option value="WhatsApp">WhatsApp</option>
+                                    <option value="Snapchat">Snapchat</option>
+                                    <option value="LinkedIn">LinkedIn</option>
+                                    <option value="Twitter">Twitter</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="WeChat">WeChat</option>
+                                    <option value="KakaoTalk">KakaoTalk</option>
+                                    <option value="LINE">LINE</option>
+                                    <option value="VKontakte">VKontakte</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label for="purpose_of_use">Main purpose</label>
+                                <select id="purpose_of_use" name="purpose_of_use" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Networking">Networking</option>
+                                    <option value="News">News</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="input-field">
+                                <label for="avg_daily_usage_hours">Daily usage (hours)</label>
+                                <input type="number" id="avg_daily_usage_hours" name="avg_daily_usage_hours" step="0.1" min="0" max="24" placeholder="e.g. 4.5" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="daily_unlocks">Daily unlocks</label>
+                                <input type="number" id="daily_unlocks" name="daily_unlocks" min="0" max="1000" placeholder="e.g. 150" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3: LIFESTYLE & HEALTH -->
+                    <div class="section-group">
+                        <div class="section-badge">
+                            <span class="section-icon">🌿</span>
+                            <span class="section-name">LIFESTYLE & ROUTINE</span>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="input-field">
+                                <label for="sleep_hours_per_night">Sleep per night (hrs)</label>
+                                <input type="number" id="sleep_hours_per_night" name="sleep_hours_per_night" step="0.1" min="0" max="24" placeholder="e.g. 7.0" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="study_hours">Study hours (daily)</label>
+                                <input type="number" id="study_hours" name="study_hours" step="0.1" min="0" max="24" placeholder="e.g. 3.0" required>
+                            </div>
+                        </div>
+
+                        <div class="grid-2">
+                            <div class="input-field">
+                                <label for="physical_activity_hours">Physical activity (hrs)</label>
+                                <input type="number" id="physical_activity_hours" name="physical_activity_hours" step="0.1" min="0" max="24" placeholder="e.g. 1.5" required>
+                            </div>
+                            <div class="input-field">
+                                <label for="stress_level">Stress level</label>
+                                <select id="stress_level" name="stress_level" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="Low">Low</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="High">High</option>
+                                    <option value="Very High">Very High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="submit-action-btn">
+                        <span>Generate Assessment</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Card: Live Assessment -->
+            <div class="card result-card">
+                <div class="result-header">
+                    <h3 class="card-title">Live Assessment</h3>
+                    <p class="card-subtitle">Complete the inputs to generate your behavioral score.</p>
+                </div>
+
+                <!-- Minimal Circular Score Display -->
+                <div class="score-circle-container">
+                    <div class="score-circle" id="score-circle">
+                        <div class="circle-inner">
+                            <div class="score-main" id="score-val">--</div>
+                            <div class="score-total">/ 10</div>
+                            <div class="score-status-text" id="score-status-text">AWAITING INPUT</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status Badge -->
+                <div class="result-badge-wrap">
+                    <span class="status-pill-badge" id="status-pill-badge">Moderate</span>
+                    <p class="model-note">Model-generated behavioral estimate</p>
+                </div>
+
+                <!-- Metric Summary Tiles -->
+                <div class="metric-tiles-grid">
+                    <div class="metric-tile">
+                        <div class="tile-header">
+                            <span class="tile-icon">🌙</span>
+                            <span class="tile-label">SLEEP</span>
+                        </div>
+                        <div class="tile-val" id="tile-sleep">--</div>
+                    </div>
+
+                    <div class="metric-tile">
+                        <div class="tile-header">
+                            <span class="tile-icon">📖</span>
+                            <span class="tile-label">STUDY</span>
+                        </div>
+                        <div class="tile-val" id="tile-study">--</div>
+                    </div>
+
+                    <div class="metric-tile">
+                        <div class="tile-header">
+                            <span class="tile-icon">📱</span>
+                            <span class="tile-label">SCREEN TIME</span>
+                        </div>
+                        <div class="tile-val" id="tile-usage">--</div>
+                    </div>
+
+                    <div class="metric-tile">
+                        <div class="tile-header">
+                            <span class="tile-icon">⚡</span>
+                            <span class="tile-label">STRESS</span>
+                        </div>
+                        <div class="tile-val" id="tile-stress">--</div>
+                    </div>
+                </div>
+
+                <!-- Live Result Note -->
+                <div class="summary-caption" id="summary-caption">
+                    Enter habits on the left to evaluate digital balance.
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
